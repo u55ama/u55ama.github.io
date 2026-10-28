@@ -1,4 +1,4 @@
-# Ussama Bin Aamir — Cinematic Portfolio
+# Ussama Aamir — Cinematic Portfolio
 
 A responsive multi-page static portfolio built for GitHub Pages.
 

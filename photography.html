@@ -1,2 +1,73 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100f0d"><meta name="description" content="Ussama Aamir — filmmaker and visual storyteller."><title>Photography — Ussama Aamir</title><link rel="stylesheet" href="styles.css"><script src="script.js"></script></head><body><script>shell("<section class=\"page-intro\"><div class=\"wrap\"><div class=\"eyebrow reveal\">STILL MOMENTS</div><h1 class=\"display reveal\">Photography<span style=\"color:var(--amber)\">.</span></h1><p class=\"reveal\">A continuous gallery of light, texture, and the things worth pausing for. Add your photographs to this strip when you're ready.</p></div></section><div class=\"wrap\"><p class=\"photo-help\">Select an image to expand it. On mobile, swipe through the gallery.</p><div class=\"photo-track\" id=\"photoTrack\"><div class=\"photo-card\" tabindex=\"0\" onclick=\"this.classList.toggle('expanded')\"><div class=\"photo-placeholder\">STILL 01 \u00b7 IMAGE TO BE ADDED</div></div><div class=\"photo-card\" tabindex=\"0\" onclick=\"this.classList.toggle('expanded')\"><div class=\"photo-placeholder\">STILL 02 \u00b7 IMAGE TO BE ADDED</div></div><div class=\"photo-card\" tabindex=\"0\" onclick=\"this.classList.toggle('expanded')\"><div class=\"photo-placeholder\">STILL 03 \u00b7 IMAGE TO BE ADDED</div></div><div class=\"photo-card\" tabindex=\"0\" onclick=\"this.classList.toggle('expanded')\"><div class=\"photo-placeholder\">STILL 04 \u00b7 IMAGE TO BE ADDED</div></div></div></div>", "Photography");</script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100f0d">
+  <meta name="description" content="Photography by Ussama Aamir — frames from projects and moments in between.">
+  <title>Photography — Ussama Aamir</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<script>
+shell(`
+  <section class="page-intro photo-page-intro">
+    <div class="wrap">
+      <div class="eyebrow reveal">STILL MOMENTS</div>
+      <h1 class="display reveal">Photography<span style="color:var(--amber)">.</span></h1>
+    </div>
+  </section>
+  <section class="wrap photo-gallery-section" aria-label="Photography gallery">
+    <div class="photo-gallery" id="photoGallery">
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 1"><img src="assets/photography/photo-01.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 2"><img src="assets/photography/photo-02.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 3"><img src="assets/photography/photo-03.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 4"><img src="assets/photography/photo-04.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 5"><img src="assets/photography/photo-05.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 6"><img src="assets/photography/photo-06.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 7"><img src="assets/photography/photo-07.jpg" alt="" loading="lazy"></button>
+      <button class="photo-card reveal" type="button" aria-label="Open photograph 8"><img src="assets/photography/photo-08.jpg" alt="" loading="lazy"></button>
+    </div>
+  </section>
+  <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer" hidden>
+    <button class="photo-lightbox-close" type="button" aria-label="Close photograph">×</button>
+    <button class="photo-lightbox-prev" type="button" aria-label="Previous photograph">‹</button>
+    <img class="photo-lightbox-image" src="" alt="">
+    <button class="photo-lightbox-next" type="button" aria-label="Next photograph">›</button>
+  </div>
+`, "Photography");
+
+(() => {
+  const gallery = document.getElementById('photoGallery');
+  const lightbox = document.getElementById('photoLightbox');
+  if (!gallery || !lightbox) return;
+  const cards = [...gallery.querySelectorAll('.photo-card')];
+  const lightboxImage = lightbox.querySelector('.photo-lightbox-image');
+  let activeIndex = 0;
+  const openAt = index => {
+    activeIndex = (index + cards.length) % cards.length;
+    lightboxImage.src = cards[activeIndex].querySelector('img').src;
+    lightbox.hidden = false;
+    document.body.classList.add('photo-lightbox-open');
+  };
+  const close = () => {
+    lightbox.hidden = true;
+    lightboxImage.removeAttribute('src');
+    document.body.classList.remove('photo-lightbox-open');
+  };
+  cards.forEach((card, index) => card.addEventListener('click', () => openAt(index)));
+  lightbox.querySelector('.photo-lightbox-close').addEventListener('click', close);
+  lightbox.querySelector('.photo-lightbox-prev').addEventListener('click', () => openAt(activeIndex - 1));
+  lightbox.querySelector('.photo-lightbox-next').addEventListener('click', () => openAt(activeIndex + 1));
+  lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+  document.addEventListener('keydown', event => {
+    if (lightbox.hidden) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') openAt(activeIndex - 1);
+    if (event.key === 'ArrowRight') openAt(activeIndex + 1);
+  });
+})();
+</script>
+</body>
+</html>

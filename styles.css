@@ -225,3 +225,41 @@ body main,body header,body footer{transition:opacity .45s ease;}
 .portrait-caption {
   display: none !important;
 }
+
+
+/* Portfolio hero — cinematic timeline background */
+body:has(#allCategories) .page-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 190px 0 100px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 9, 8, 0.84) 0%,
+      rgba(10, 9, 8, 0.65) 42%,
+      rgba(10, 9, 8, 0.28) 100%
+    ),
+    linear-gradient(
+      0deg,
+      #100f0d 0%,
+      rgba(16, 15, 13, 0.08) 45%,
+      rgba(16, 15, 13, 0.15) 100%
+    ),
+    url("./assets/portfolio-timeline-background.jpeg");
+  background-size: cover;
+  background-position: center 48%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 760px) {
+  body:has(#allCategories) .page-intro {
+    min-height: 70vh;
+    padding: 150px 0 70px;
+    background-position: 58% center;
+  }
+}

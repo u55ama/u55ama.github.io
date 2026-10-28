@@ -48,3 +48,20 @@ footer{border-top:1px solid var(--line);padding:28px 0 35px;color:#82796f;font:1
  .category,.category:nth-child(2n){min-height:170px;padding:24px 0!important;border-left:0!important;border-top:1px solid var(--line)!important}
  .category:first-child{border-top:0!important}
 }
+
+/* Signature identity and restrained cinematic transitions */
+.brand{display:flex;align-items:center;min-width:112px;min-height:28px;color:rgba(255,255,255,.72);}
+.brand img{display:block;width:112px;height:34px;object-fit:contain;opacity:.72;transition:opacity .25s ease;}
+.brand:hover img{opacity:1}
+.signature-intro{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:#100f0d;opacity:1;pointer-events:all;transition:opacity .55s ease;}
+.signature-intro img{display:block;width:min(42vw,310px);max-height:42vh;object-fit:contain;opacity:0;transform:scale(.96);filter:drop-shadow(0 0 22px rgba(255,255,255,.035));}
+.signature-intro.intro-mode img{animation:signatureReveal 1.45s cubic-bezier(.22,.7,.25,1) both;}
+.signature-intro.transition-mode{background:rgba(16,15,13,.97);}
+.signature-intro.transition-mode img{width:min(24vw,170px);animation:signatureQuickReveal .43s ease both;}
+.signature-intro.signature-intro-out{opacity:0;pointer-events:none;}
+body.signature-is-transitioning main,body.signature-is-transitioning header,body.signature-is-transitioning footer{opacity:0;}
+body main,body header,body footer{transition:opacity .45s ease;}
+@keyframes signatureReveal{0%{opacity:0;transform:scale(.94);filter:blur(3px)}25%{opacity:.76}70%{opacity:.76;transform:scale(1)}100%{opacity:.76;transform:scale(1)}}
+@keyframes signatureQuickReveal{0%{opacity:0;transform:scale(.96)}100%{opacity:.72;transform:scale(1)}}
+@media(max-width:760px){.brand img{width:88px;height:30px}.signature-intro img{width:min(58vw,260px)}.signature-intro.transition-mode img{width:min(35vw,145px)}}
+@media(prefers-reduced-motion:reduce){.signature-intro{display:none!important}body main,body header,body footer{opacity:1!important;transition:none!important}}

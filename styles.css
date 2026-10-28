@@ -387,7 +387,7 @@ body:has(.contact-layout) .page-intro:before{
   position:absolute;
   inset:0;
   z-index:-2;
-  background-image:url("./assets/contact-background.jpg");
+  background-image:url("./assets/contact-background.png");
   background-size:cover;
   background-position:center 48%;
   background-repeat:no-repeat;

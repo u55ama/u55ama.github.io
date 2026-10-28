@@ -73,12 +73,23 @@ body main,body header,body footer{transition:opacity .45s ease;}
 .signature-intro.transition-mode img{width:min(28vw,190px)}
 @media(max-width:760px){.brand{width:96px;min-width:96px;height:32px}.brand img{width:96px;height:32px}.signature-intro img{width:min(64vw,280px)}.signature-intro.transition-mode img{width:min(40vw,150px)}}
 
-/* About page cinematic hero */
-.about-hero{min-height:100svh;display:flex;align-items:center;padding:160px 0 90px;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#100f0d}
-.about-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,8,.70) 0%,rgba(10,9,8,.38) 43%,rgba(10,9,8,.10) 100%),linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.1) 36%,rgba(16,15,13,.14) 100%),url('assets/about-set.jpg') center 48%/cover no-repeat;transform:scale(1.01);animation:heroIn 1.4s ease both}
-.about-hero .wrap{position:relative;z-index:1}
-.about-hero h1{font-size:clamp(58px,9vw,128px);margin:24px 0 26px;max-width:780px}
-.about-hero p{color:#d1c8be;max-width:450px;line-height:1.8;font-size:clamp(14px,1.6vw,18px)}
-.about-grid{position:relative}
-.about-mark{background:linear-gradient(145deg,rgba(52,37,26,.72),rgba(21,18,15,.88)),url('assets/about-set.jpg') center/cover no-repeat;filter:saturate(.8)}
-@media(max-width:700px){.about-hero{min-height:88svh;padding:145px 0 70px}.about-hero:before{background:linear-gradient(90deg,rgba(10,9,8,.76),rgba(10,9,8,.36)),linear-gradient(0deg,#100f0d 0%,transparent 55%),url('assets/about-set.jpg') 54% center/cover no-repeat}.about-hero h1{font-size:clamp(54px,15vw,82px)}}
+
+/* About page v7 — responsive cinematic layout */
+.about-hero{min-height:clamp(650px,94svh,980px);display:flex;align-items:center;padding:180px 0 90px;position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);background:#100f0d}
+.about-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url('assets/about-set.jpg') center 44%/cover no-repeat;transform:scale(1.015);animation:heroIn 1.4s ease both}
+.about-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,7,6,.83) 0%,rgba(8,7,6,.58) 36%,rgba(8,7,6,.18) 75%,rgba(8,7,6,.20) 100%),linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.04) 43%,rgba(16,15,13,.18) 100%)}
+.about-hero-content{padding-top:40px}.about-hero h1{font-size:clamp(64px,9.2vw,136px);margin:26px 0 26px;max-width:790px;line-height:.91;letter-spacing:-.055em}.about-hero p{color:#d1c8be;max-width:450px;line-height:1.8;font-size:clamp(14px,1.35vw,18px);margin:0}
+.about-profile{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(0,1fr);gap:clamp(36px,6vw,90px);align-items:center;padding:100px 0 110px}
+.about-portrait{position:relative;min-height:520px;aspect-ratio:4/5;overflow:hidden;background:#17120e;border:1px solid rgba(255,255,255,.08)}
+.about-portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.02) 35%,rgba(8,7,6,.2) 60%,rgba(8,7,6,.88) 100%),linear-gradient(90deg,rgba(120,67,29,.12),transparent 65%);pointer-events:none}
+.about-portrait>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:contrast(1.04) brightness(.86) saturate(.78);transition:transform .8s ease}.about-portrait:hover>img{transform:scale(1.025)}
+.portrait-caption{position:absolute;z-index:1;left:26px;bottom:28px;display:flex;flex-direction:column;gap:7px}.portrait-name{font:11px 'DM Mono',monospace;letter-spacing:.18em;color:#f4ece3}.portrait-role{font:9px 'DM Mono',monospace;letter-spacing:.15em;color:#c8b8a8}.portrait-signature{position:absolute!important;width:112px!important;height:48px!important;left:-8px;bottom:22px;inset:auto!important;object-fit:contain!important;opacity:.82;transform:rotate(-8deg);filter:brightness(0) invert(1);pointer-events:none}
+.about-copy h2{font:clamp(36px,4.3vw,62px)/1.12 'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:-.04em;margin:20px 0 20px}.about-copy p{font-size:14px;line-height:1.9;color:#bdb3a8;margin:0 0 20px;max-width:680px}.about-copy .about-mantra{font-size:15px;color:#d7b18c;margin-bottom:26px}.about-signoff{position:relative;display:inline-flex;align-items:center;margin-top:14px;min-height:56px;padding:10px 0}.about-signoff span{position:relative;z-index:2;font:11px 'DM Mono',monospace;color:var(--amber);letter-spacing:.18em}.about-signoff img{position:absolute;width:106px;height:56px;object-fit:contain;left:-24px;top:-5px;opacity:.58;filter:brightness(0) invert(1);transform:rotate(-7deg);z-index:1;pointer-events:none}
+.behind-scenes-section{padding:0 0 110px}.behind-scenes-head{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:24px 0;margin-bottom:18px}.behind-scenes-head a{font:10px 'DM Mono',monospace;letter-spacing:.13em;color:#c8b9aa}.behind-scenes-head a span{font-size:18px;margin-left:14px;color:var(--amber)}.behind-scenes-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}.behind-scene{margin:0;aspect-ratio:16/9;overflow:hidden;background:#1a1510}.behind-scene img{width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.76);transition:transform .7s,filter .5s}.behind-scene:hover img{transform:scale(1.035);filter:brightness(.9) saturate(.9)}
+@media(max-width:760px){.about-hero{min-height:84svh;padding:145px 0 62px}.about-hero:before{background-position:54% center}.about-hero:after{background:linear-gradient(90deg,rgba(8,7,6,.78),rgba(8,7,6,.34)),linear-gradient(0deg,#100f0d 0%,transparent 60%)}.about-hero-content{padding-top:36px}.about-hero h1{font-size:clamp(58px,14vw,86px);margin:22px 0}.about-profile{grid-template-columns:1fr;gap:34px;padding:58px 0 72px}.about-portrait{min-height:0;aspect-ratio:4/4.4;max-height:650px}.about-copy h2{font-size:clamp(36px,9vw,52px)}.about-copy p{font-size:13px}.behind-scenes-section{padding-bottom:72px}.behind-scenes-grid{grid-template-columns:1fr;gap:12px}.behind-scenes-head{margin-bottom:12px}.portrait-caption{left:20px;bottom:22px}}
+@media(prefers-reduced-motion:reduce){.about-hero:before{animation:none}.about-portrait>img,.behind-scene img{transition:none}}
+
+/* Layering correction: keep the hero image above the section background and beneath its text */
+.about-hero:before{z-index:0!important}
+.about-hero:after{z-index:1!important}
+.about-hero-content{position:relative;z-index:2!important}

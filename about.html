@@ -1,2 +1,34 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100f0d"><meta name="description" content="Ussama Aamir — filmmaker and visual storyteller."><title>Behind the frame — Ussama Aamir</title><link rel="stylesheet" href="styles.css"><script src="script.js"></script></head><body><script>shell("<section class=\"about-hero\"><div class=\"wrap\"><div class=\"eyebrow reveal\">A LITTLE ABOUT ME</div><h1 class=\"display reveal\">Behind the<br>frame.</h1><p class=\"reveal\">Some stories are better felt than explained.</p></div></section><div class=\"wrap about-grid\"><div class=\"about-mark reveal\">USSAMA AAMIR<br>FILMMAKER / OBSERVER</div><div class=\"about-copy reveal\"><h2>Visual storyteller.<br>Filmmaker. Observer.</h2><p>Visual storyteller. Filmmaker. Observer of the moments that matter.</p><p>Every story has a perspective. Mine begins with looking a little closer.</p><p>Working across documentary, commercial, corporate, and narrative filmmaking, I explore the people, places, and ideas that give each frame its meaning.</p><p>The rest is best experienced through the work.</p><div class=\"signature\">USSAMA AAMIR</div></div></div>", "About");</script></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100f0d"><meta name="description" content="Ussama Aamir — filmmaker and visual storyteller. Observer of the moments that matter."><title>About — Ussama Aamir</title><link rel="stylesheet" href="styles.css"><script src="script.js"></script></head><body><script>
+shell(`
+<section class="about-hero">
+  <div class="wrap about-hero-content">
+    <div class="eyebrow reveal">A LITTLE ABOUT ME</div>
+    <h1 class="display reveal">Behind the<br>frame.</h1>
+    <p class="reveal">Some stories are better felt than explained.</p>
+  </div>
+</section>
+<section class="wrap about-profile">
+  <div class="about-portrait reveal">
+    <img src="assets/ussama-portrait.jpg" alt="Portrait of Ussama Aamir" loading="eager">
+    <div class="portrait-caption"><span class="portrait-name">USSAMA AAMIR</span><span class="portrait-role">FILMMAKER / OBSERVER</span><img src="signature-white.png" alt="" class="portrait-signature"></div>
+  </div>
+  <div class="about-copy reveal">
+    <div class="eyebrow">WHO I AM</div>
+    <h2>Visual storyteller.<br>Filmmaker. Observer.</h2>
+    <p class="about-mantra">Observer of the moments that matter.</p>
+    <p>Every story has a perspective. Mine begins with looking a little closer.</p>
+    <p>I work across documentary, commercial, corporate, and narrative filmmaking, exploring the people, places, and ideas that give each frame its meaning. I’m drawn to real stories, honest moments, and visuals that feel alive — whether it’s a brand, a cause, or an idea worth sharing.</p>
+    <p>For me, filmmaking is a way to understand the world better — and to create work that makes people feel, think, and see things differently.</p>
+    <div class="about-signoff"><span>USSAMA AAMIR</span><img src="signature-white.png" alt="Ussama Aamir signature"></div>
+  </div>
+</section>
+<section class="wrap behind-scenes-section">
+  <div class="behind-scenes-head"><div class="eyebrow">BEHIND THE SCENES</div><a href="photography.html">MORE PHOTOS <span>⟶</span></a></div>
+  <div class="behind-scenes-grid">
+    <figure class="behind-scene scene-wide"><img src="assets/about-set.jpg" alt="On set, preparing a camera rig" loading="lazy"></figure>
+    <figure class="behind-scene"><img src="assets/behind-scenes-2.jpg" alt="Behind the scenes of a production" loading="lazy"></figure>
+  </div>
+</section>
+`, "About");
+</script></body></html>

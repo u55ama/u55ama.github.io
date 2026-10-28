@@ -367,3 +367,75 @@ body:has(.project-list):not(:has(#allCategories)) .project-link {
 body.photo-lightbox-open{overflow:hidden}
 @media(max-width:760px){.photo-page-intro{padding:145px 0 28px}.photo-gallery-section{padding:8px 0 70px}.photo-gallery{gap:9px}.photo-card img{min-height:120px}.photo-lightbox{padding:50px 12px}.photo-lightbox-image{max-width:94vw;max-height:78vh}.photo-lightbox-prev,.photo-lightbox-next{top:auto;bottom:12px;transform:none;width:44px;height:44px;border-radius:50%;font-size:30px}.photo-lightbox-prev{left:calc(50% - 54px)}.photo-lightbox-next{right:calc(50% - 54px)}.photo-lightbox-close{top:12px;right:12px}}
 @media(prefers-reduced-motion:reduce){.photo-card img,.photo-card:after,.photo-lightbox-close,.photo-lightbox-prev,.photo-lightbox-next{transition:none!important}}
+
+
+/* Contact page — warm amber behind-the-scenes hero */
+body:has(.contact-layout) .page-intro{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:78vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:190px 0 90px;
+  border-bottom:1px solid var(--line);
+  background:#100f0d;
+}
+body:has(.contact-layout) .page-intro:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background-image:url("./assets/contact-background.jpg");
+  background-size:cover;
+  background-position:center 48%;
+  background-repeat:no-repeat;
+  transform:scale(1.015);
+  animation:heroIn 1.4s ease both;
+}
+body:has(.contact-layout) .page-intro:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(8,7,6,.82) 0%,rgba(8,7,6,.66) 34%,rgba(8,7,6,.28) 68%,rgba(8,7,6,.22) 100%),
+    linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.06) 43%,rgba(16,15,13,.25) 100%);
+}
+body:has(.contact-layout) .page-intro > *{
+  position:relative;
+  z-index:1;
+}
+body:has(.contact-layout) .page-intro h1{
+  max-width:760px;
+  font-size:clamp(58px,8.8vw,112px);
+  line-height:.96;
+  letter-spacing:-.055em;
+}
+body:has(.contact-layout) .page-intro p{
+  color:#d1c8be;
+  max-width:500px;
+  line-height:1.8;
+}
+@media(max-width:760px){
+  body:has(.contact-layout) .page-intro{
+    min-height:76svh;
+    padding:150px 0 62px;
+  }
+  body:has(.contact-layout) .page-intro:before{
+    background-position:58% center;
+  }
+  body:has(.contact-layout) .page-intro:after{
+    background:
+      linear-gradient(90deg,rgba(8,7,6,.78),rgba(8,7,6,.34)),
+      linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.08) 58%,rgba(16,15,13,.22) 100%);
+  }
+  body:has(.contact-layout) .page-intro h1{
+    font-size:clamp(52px,13vw,82px);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body:has(.contact-layout) .page-intro:before{animation:none}
+}

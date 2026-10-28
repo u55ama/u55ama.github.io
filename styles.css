@@ -90,7 +90,7 @@ body main,body header,body footer{transition:opacity .45s ease;}
   position:absolute;
   inset:0;
   z-index:-2;
-  background-image:url("./assets/about-camera-background.jpg");
+  background-image:url("./assets/about-camera-background.jpeg");
   background-position:center 48%;
   background-size:cover;
   background-repeat:no-repeat;

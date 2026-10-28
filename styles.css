@@ -72,3 +72,13 @@ body main,body header,body footer{transition:opacity .45s ease;}
 .signature-intro img{width:min(48vw,360px);height:auto;max-height:48vh;object-fit:contain}
 .signature-intro.transition-mode img{width:min(28vw,190px)}
 @media(max-width:760px){.brand{width:96px;min-width:96px;height:32px}.brand img{width:96px;height:32px}.signature-intro img{width:min(64vw,280px)}.signature-intro.transition-mode img{width:min(40vw,150px)}}
+
+/* About page cinematic hero */
+.about-hero{min-height:100svh;display:flex;align-items:center;padding:160px 0 90px;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#100f0d}
+.about-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,8,.70) 0%,rgba(10,9,8,.38) 43%,rgba(10,9,8,.10) 100%),linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.1) 36%,rgba(16,15,13,.14) 100%),url('assets/about-set.jpg') center 48%/cover no-repeat;transform:scale(1.01);animation:heroIn 1.4s ease both}
+.about-hero .wrap{position:relative;z-index:1}
+.about-hero h1{font-size:clamp(58px,9vw,128px);margin:24px 0 26px;max-width:780px}
+.about-hero p{color:#d1c8be;max-width:450px;line-height:1.8;font-size:clamp(14px,1.6vw,18px)}
+.about-grid{position:relative}
+.about-mark{background:linear-gradient(145deg,rgba(52,37,26,.72),rgba(21,18,15,.88)),url('assets/about-set.jpg') center/cover no-repeat;filter:saturate(.8)}
+@media(max-width:700px){.about-hero{min-height:88svh;padding:145px 0 70px}.about-hero:before{background:linear-gradient(90deg,rgba(10,9,8,.76),rgba(10,9,8,.36)),linear-gradient(0deg,#100f0d 0%,transparent 55%),url('assets/about-set.jpg') 54% center/cover no-repeat}.about-hero h1{font-size:clamp(54px,15vw,82px)}}

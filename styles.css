@@ -93,3 +93,85 @@ body main,body header,body footer{transition:opacity .45s ease;}
 .about-hero:before{z-index:0!important}
 .about-hero:after{z-index:1!important}
 .about-hero-content{position:relative;z-index:2!important}
+
+
+/* About page v8 — full-bleed camera hero, no portrait photo or gallery */
+.about-hero{
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  padding:160px 0 90px;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:#100f0d;
+}
+.about-hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0!important;
+  background:url('assets/about-camera-background.jpg') center 48%/cover no-repeat;
+  transform:scale(1.015);
+  animation:heroIn 1.4s ease both;
+}
+.about-hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1!important;
+  background:
+    linear-gradient(90deg,rgba(8,7,6,.88) 0%,rgba(8,7,6,.72) 31%,rgba(8,7,6,.26) 64%,rgba(8,7,6,.12) 100%),
+    linear-gradient(0deg,#100f0d 0%,rgba(16,15,13,.06) 40%,rgba(16,15,13,.28) 100%);
+}
+.about-hero-content{position:relative;z-index:2!important;padding-top:36px}
+.about-hero h1{font-size:clamp(64px,9.2vw,136px);margin:26px 0;max-width:790px;line-height:.91;letter-spacing:-.055em}
+.about-hero p{color:#d1c8be;max-width:450px;line-height:1.8;font-size:clamp(14px,1.35vw,18px);margin:0}
+.about-profile{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1fr);
+  gap:clamp(36px,6vw,90px);
+  align-items:center;
+  padding:84px 0 92px;
+}
+.about-portrait{
+  position:relative;
+  min-height:430px;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(ellipse at 28% 18%,rgba(120,77,43,.20),transparent 50%),
+    linear-gradient(145deg,rgba(42,31,23,.82),rgba(17,15,13,.98)),
+    #17120e;
+}
+.about-portrait:before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  opacity:.2;pointer-events:none;
+}
+.portrait-caption{position:absolute;z-index:1;left:26px;bottom:28px;display:flex;flex-direction:column;gap:7px}
+.portrait-name{font:11px 'DM Mono',monospace;letter-spacing:.18em;color:#f4ece3}
+.portrait-role{font:9px 'DM Mono',monospace;letter-spacing:.15em;color:#c8b8a8}
+.about-copy h2{font:clamp(36px,4.3vw,62px)/1.12 'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:-.04em;margin:20px 0}
+.about-copy p{font-size:14px;line-height:1.9;color:#bdb3a8;margin:0 0 20px;max-width:680px}
+.about-copy .about-mantra{font-size:15px;color:#d7b18c;margin-bottom:26px}
+.about-signoff{position:relative;display:inline-flex;align-items:center;margin-top:14px;min-height:60px;padding:10px 0 10px;isolation:isolate}
+.about-signoff span{position:relative;z-index:2;font:11px 'DM Mono',monospace;color:var(--amber);letter-spacing:.18em;white-space:nowrap}
+.about-signoff img{position:absolute;width:88px;height:48px;object-fit:contain;left:calc(100% - 16px);top:-7px;opacity:.72;filter:brightness(0) invert(1);transform:rotate(-7deg);z-index:1;pointer-events:none}
+.behind-scenes-section{display:none!important}
+@media(max-width:760px){
+  .about-hero{min-height:88svh;padding:145px 0 65px}
+  .about-hero:before{background-position:58% center}
+  .about-hero:after{background:linear-gradient(90deg,rgba(8,7,6,.82),rgba(8,7,6,.36)),linear-gradient(0deg,#100f0d 0%,transparent 60%)}
+  .about-hero-content{padding-top:30px}
+  .about-hero h1{font-size:clamp(58px,14vw,86px);margin:22px 0}
+  .about-profile{grid-template-columns:1fr;gap:30px;padding:52px 0 62px}
+  .about-portrait{min-height:210px;aspect-ratio:auto}
+  .portrait-caption{left:20px;bottom:20px}
+  .about-copy h2{font-size:clamp(36px,9vw,52px)}
+  .about-copy p{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.about-hero:before{animation:none}}

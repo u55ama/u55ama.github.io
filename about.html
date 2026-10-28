@@ -1,5 +1,16 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100f0d"><meta name="description" content="Ussama Aamir — filmmaker and visual storyteller. Observer of the moments that matter."><title>About — Ussama Aamir</title><link rel="stylesheet" href="styles.css"><script src="script.js"></script></head><body><script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100f0d">
+<meta name="description" content="Ussama Aamir — filmmaker and visual storyteller. Observer of the moments that matter.">
+<title>About — Ussama Aamir</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+<body>
+<script>
 shell(`
 <section class="about-hero">
   <div class="wrap about-hero-content">
@@ -9,9 +20,11 @@ shell(`
   </div>
 </section>
 <section class="wrap about-profile">
-  <div class="about-portrait reveal">
-    <img src="assets/ussama-portrait.jpg" alt="Portrait of Ussama Aamir" loading="eager">
-    <div class="portrait-caption"><span class="portrait-name">USSAMA AAMIR</span><span class="portrait-role">FILMMAKER / OBSERVER</span><img src="signature-white.png" alt="" class="portrait-signature"></div>
+  <div class="about-portrait reveal" aria-label="Signature nameplate">
+    <div class="portrait-caption">
+      <span class="portrait-name">USSAMA AAMIR</span>
+      <span class="portrait-role">FILMMAKER / OBSERVER</span>
+    </div>
   </div>
   <div class="about-copy reveal">
     <div class="eyebrow">WHO I AM</div>
@@ -20,15 +33,10 @@ shell(`
     <p>Every story has a perspective. Mine begins with looking a little closer.</p>
     <p>I work across documentary, commercial, corporate, and narrative filmmaking, exploring the people, places, and ideas that give each frame its meaning. I’m drawn to real stories, honest moments, and visuals that feel alive — whether it’s a brand, a cause, or an idea worth sharing.</p>
     <p>For me, filmmaking is a way to understand the world better — and to create work that makes people feel, think, and see things differently.</p>
-    <div class="about-signoff"><span>USSAMA AAMIR</span><img src="signature-white.png" alt="Ussama Aamir signature"></div>
-  </div>
-</section>
-<section class="wrap behind-scenes-section">
-  <div class="behind-scenes-head"><div class="eyebrow">BEHIND THE SCENES</div><a href="photography.html">MORE PHOTOS <span>⟶</span></a></div>
-  <div class="behind-scenes-grid">
-    <figure class="behind-scene scene-wide"><img src="assets/about-set.jpg" alt="On set, preparing a camera rig" loading="lazy"></figure>
-    <figure class="behind-scene"><img src="assets/behind-scenes-2.jpg" alt="Behind the scenes of a production" loading="lazy"></figure>
+    <div class="about-signoff"><span>USSAMA AAMIR</span><img src="signature-white.png" alt="" aria-hidden="true"></div>
   </div>
 </section>
 `, "About");
-</script></body></html>
+</script>
+</body>
+</html>
